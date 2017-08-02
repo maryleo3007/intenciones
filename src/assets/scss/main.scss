@@ -1,0 +1,115 @@
+@import 'colors';
+
+//mixin
+@mixin bg-image($url, $size, $position) {
+  background-image: url($url);
+	background-size: $size;
+	background-position: $position;
+	background-repeat: no-repeat;
+}
+
+.hiden{
+  display: none;
+}
+/***********form intenciones****************/
+.form-intenciones{
+  background-color: $green;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 35px;
+  padding-bottom: 50px;
+  width: 450px;
+  float: left;
+  left: 50%;
+  position: absolute;
+  margin-top: 10%;
+  margin-left: -260px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  @media only screen and (max-width: 580px) {
+    left: 6%;
+		margin: 12% auto;
+		width: 88%;
+		padding-left: 3%;
+		padding-right: 3%;
+  }
+}
+.feedback-input {
+  font-weight:500;
+	font-size: 18px;
+	border-radius: 0;
+	line-height: 22px;
+	background-color: $grey;
+	padding: 13px 13px 13px 54px;
+	margin-bottom: 10px;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+.feedback-input:focus{
+	background: #fff;
+	box-shadow: 0;
+	border: 3px solid #3498db;
+	outline: none;
+  padding: 13px 13px 13px 54px;
+}
+#txtPass{
+  @include bg-image('http://rexkirby.com/kirbyandson/images/name.svg', 30px 30px, 11px 8px);
+}
+
+#txtPass:focus{
+  @include bg-image('http://rexkirby.com/kirbyandson/images/name.svg', 30px 30px, 11px 8px);
+}
+
+#txtEmail{
+  @include bg-image('http://rexkirby.com/kirbyandson/images/email.svg', 30px 30px, 11px 8px);
+}
+
+#txtEmail:focus{
+  @include bg-image('http://rexkirby.com/kirbyandson/images/email.svg', 30px 30px, 11px 8px);
+}
+.btn-login{
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin-right: 28px;
+}
+/****************principal*******************/
+.principal-content{
+  width: 70%;
+  margin: 2% auto;
+  border: 1.5px solid blue;
+  padding: 2%
+}
+.code-button {
+  display: inline-block;
+  margin: 1em;
+  border-radius: 3px;
+  background: $green;
+  border: none;
+  padding: 1em;
+  color: $brown;
+  cursor: pointer;
+  width: 12rem;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+    color: black;
+  }
+}
+.h2-principal{
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+  font-size: 2em;
+  line-height: 1.2em;
+  small {
+    opacity: 0.7;
+    text-transform: none;
+    font-size: 0.7em;
+    line-height: 0.5em;
+  }
+}
