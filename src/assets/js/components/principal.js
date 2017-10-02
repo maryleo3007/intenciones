@@ -1,4 +1,4 @@
-const Principal = function () {
+const Principal = function (update) {
 
   const content = $('<div class="principal-content"></div>');
   const title = $('<h2 class="h2-principal">sistema regional de intenciones de siembra<br><small>REGION: Ayacucho</small></h2>');
@@ -15,6 +15,7 @@ const Principal = function () {
   a1.on('click', (e) =>{
     e.preventDefault();
     state.screen = "personal"
+    update();
   });
   a2.on('click', (e) =>{
     e.preventDefault();

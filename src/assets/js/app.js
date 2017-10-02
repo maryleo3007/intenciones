@@ -3,9 +3,8 @@
 const render = (root) => {
   root.empty();
   const wrapper = $('<div class="wrapper"></div>');
-
   if (state.screen == "") {
-    wrapper.append(Login(_ =>render(root)));
+    wrapper.append(Personal (_ =>render(root)));
   }else if (state.screen == "principal") {
     wrapper.append(Principal(_ =>render(root)));
   }

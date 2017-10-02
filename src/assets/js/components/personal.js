@@ -1,51 +1,59 @@
 const Personal = function (update) {
 
-  const divContent = $('<div class="form-personal"></div>');
-  const text = $('<h3 class="text-center">Administración de Personal</h3>');
-  const txtEmail = $('<input id="txtEmail" class="feedback-input" type="email" name="" value="" placeholder="Ingresa tu Email">');
-  const txtPass = $('<input id="txtPass"  class="feedback-input" type="password" name="" value="" placeholder="Ingresa tu contrasenia">');
-  const btnLogin = $('<button id="btnLogin" class="btn-login" type="button" name="button">Iniciar Sesión</button>');
-  const btnSingUp = $('<button id="btnSingUp"  class="btn-login" type="button" name="button">Registrarse</button>');
-  const btnLogOut = $('<button id="btnLogOut"  class="btn-login hiden" type="button" name="button">Cerrar Sesión</button>');
+  const divContent = $('<div class="container"></div>');
+  const title = $('<h3 class="text-center">Administración de Personal</h3>');
+  const form = $('<form></form>');
+  const provincias = $('<div class="form-group"<label for="provincia">Provincia</label><select class="form-control" id="provincia">'+
+        '<option>Huamanga</option><option>Cangallo</option><option>Huanta</option><option>Cangallo</option>'+
+        '<option>Huanca Sancos</option><option>La Mar</option><option>Lucanas</option><option>Parinacochas</option>'+
+        '<option>Paucar del Sara Sara</option><option>Sucre</option><option>Victor Fajardo</option><option>Vilcas Huaman</option>'+
+        '</select></div>');
 
-  divContent.append(text,txtEmail,txtPass,btnLogin,btnSingUp,btnLogOut);
+  const fgNombre = $('<div class = "form-group"></div>');
+  const labelNombre  = $('<label for="nombre"></label>');
+  const iptNombre  = $('<input id = "nombrePersonal" placeholder="Nombre">');
 
-  btnLogin.on('click', (e) => {
-    const email = txtEmail.val();
-    const pass = txtPass.val();
-    const auth = firebase.auth(); //constante para almacenar la promesa que nos va a devolver
-    const promise = auth.signInWithEmailAndPassword(email,pass);
-    promise.catch(e => {
-      console.log(e.message);
-    });
+  const fgLastNombre = $('<div class = "form-group"></div>');
+  const labelLastNombre  = $('<label for="nombre"></label>');
+  const iptLastNombre  = $('<input id = "apellidoPersonal" placeholder="Apellido">');
 
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-        console.log(user);
-        $('#btnLogOut').removeClass('hiden');
-        state.screen = "principal";
-        update();
+  const cargo = $('<div class="form-group"<label for="cargo">Cargo</label><select class="form-control" id="cargo">'+
+        '<option>Huamanga</option><option>Cangallo</option><option>Huanta</option><option>Cangallo</option>'+
+        '<option>Huanca Sancos</option><option>La Mar</option><option>Lucanas</option><option>Parinacochas</option>'+
+        '<option>Paucar del Sara Sara</option><option>Sucre</option><option>Victor Fajardo</option><option>Vilcas Huaman</option>'+
+        '</select></div>');
 
-      } else {
-        console.log('no logeado');
-        $('#btnLogOut').addClass('hiden');
-      }
-    });
+  const comentarios = $('<div class="form-group"><label for="comment">Comment:</label>'+
+                    '<textarea class="form-control" rows="5" id="comment"></textarea>'+
+                    '</div>');
+
+  const btnActualizar = $('<button id="btnActulizar" class="btn-login" type="button" name="button">Iniciar Sesión</button>');
+  const btnModificar = $('<button id="btnSingUp"  class="btn-login" type="button" name="button">Registrarse</button>');
+  const btnSalir = $('<button id="btnLogOut"  class="btn-login hiden" type="button" name="button">Cerrar Sesión</button>');
+
+  divContent.append(title,form);
+  fgNombre.append(labelNombre,iptNombre);
+  fgLastNombre.append(labelLastNombre,iptLastNombre);
+  form
+      .append(provincias)
+      .append(fgNombre)
+      .append(fgLastNombre)
+      .append(cargo)
+      .append(comentarios)
+      .append(btnActualizar)
+      .append(btnModificar)
+      .append(btnSalir);
+
+  btnActualizar.on('click', (e) => {
+    console.log("personal");
   });
 
-  btnSingUp.on('click', (e) => {
-    const email = txtEmail.val();
-    const pass = txtPass.val();
-    const auth = firebase.auth(); //constante para almacenar la promesa que nos va a devolver
-    const promise = auth.createUserWithEmailAndPassword(email,pass);
-    promise.catch(e => {
-      console.log(e.message);
-    });
+  btnModificar.on('click', (e) => {
+    console.log("personal");
   });
 
-  btnLogOut.on('click', (e) => {
-    firebase.auth().signOut();
+  btnSalir.on('click', (e) => {
+    console.log("personal");
   });
 
   return divContent;
