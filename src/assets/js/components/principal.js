@@ -1,5 +1,6 @@
 const Principal = function (update) {
 
+  const container = $('<div class="container"></div>');
   const content = $('<div class="principal-content"></div>');
   const title = $('<h2 class="h2-principal">sistema regional de intenciones de siembra<br><small>REGION: Ayacucho</small></h2>');
   const p = $('<p>Ingreso</p>');
@@ -10,6 +11,7 @@ const Principal = function (update) {
   const reporteCultivo = $('<a href="#" class="code-button">Reporte por cultivo</a>');
   const reporteProvincia = $('<a href="#" class="code-button">Reporte por provincia</a>');
 
+  container.append(content);
   content.append(title,p,a1,a2,a3,reportes,reporteCultivo,reporteProvincia);
 
   a1.on('click', (e) =>{
@@ -34,5 +36,5 @@ const Principal = function (update) {
     state.screen = "reporteProvincia"
   });
 
-  return content;
+  return container;
 };

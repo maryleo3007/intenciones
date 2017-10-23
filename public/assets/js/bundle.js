@@ -81,11 +81,11 @@ const Personal = function (update) {
 
   const fgNombre = $('<div class = "form-group"></div>');
   const labelNombre  = $('<label for="nombre"></label>');
-  const iptNombre  = $('<input id = "nombrePersonal" placeholder="Nombre">');
+  const iptNombre  = $('<input type="text" id = "nombrePersonal" placeholder="Nombre">');
 
   const fgLastNombre = $('<div class = "form-group"></div>');
   const labelLastNombre  = $('<label for="nombre"></label>');
-  const iptLastNombre  = $('<input id = "apellidoPersonal" placeholder="Apellido">');
+  const iptLastNombre  = $('<input type="text" id = "apellidoPersonal" placeholder="Apellido">');
 
   const cargo = $('<div class="form-group"<label for="cargo">Cargo</label><select class="form-control" id="cargo">'+
         '<option>Huamanga</option><option>Cangallo</option><option>Huanta</option><option>Cangallo</option>'+
@@ -97,9 +97,9 @@ const Personal = function (update) {
                     '<textarea class="form-control" rows="5" id="comment"></textarea>'+
                     '</div>');
 
-  const btnActualizar = $('<button id="btnActulizar" class="btn-login" type="button" name="button">Iniciar Sesión</button>');
-  const btnModificar = $('<button id="btnSingUp"  class="btn-login" type="button" name="button">Registrarse</button>');
-  const btnSalir = $('<button id="btnLogOut"  class="btn-login hiden" type="button" name="button">Cerrar Sesión</button>');
+  const btnActualizar = $('<button id="btnActulizarPersonal" class="btn-login" type="button" name="button">Actualizar</button>');
+  const btnGuardar = $('<button id="btnGuardarPersonal"  class="btn-login" type="button" name="button">Guardar</button>');
+  const btnSalir = $('<button id="btnSalirPersonal"  class="btn-login" type="button" name="button">Regresar</button>');
 
   divContent.append(title,form);
   fgNombre.append(labelNombre,iptNombre);
@@ -111,19 +111,20 @@ const Personal = function (update) {
       .append(cargo)
       .append(comentarios)
       .append(btnActualizar)
-      .append(btnModificar)
+      .append(btnGuardar)
       .append(btnSalir);
 
   btnActualizar.on('click', (e) => {
     console.log("personal");
   });
 
-  btnModificar.on('click', (e) => {
+  btnGuardar.on('click', (e) => {
     console.log("personal");
   });
 
   btnSalir.on('click', (e) => {
-    console.log("personal");
+    state.screen = "principal";
+    update();
   });
 
   return divContent;
@@ -131,6 +132,7 @@ const Personal = function (update) {
 
 const Principal = function (update) {
 
+  const container = $('<div class="container"></div>');
   const content = $('<div class="principal-content"></div>');
   const title = $('<h2 class="h2-principal">sistema regional de intenciones de siembra<br><small>REGION: Ayacucho</small></h2>');
   const p = $('<p>Ingreso</p>');
@@ -141,6 +143,7 @@ const Principal = function (update) {
   const reporteCultivo = $('<a href="#" class="code-button">Reporte por cultivo</a>');
   const reporteProvincia = $('<a href="#" class="code-button">Reporte por provincia</a>');
 
+  container.append(content);
   content.append(title,p,a1,a2,a3,reportes,reporteCultivo,reporteProvincia);
 
   a1.on('click', (e) =>{
@@ -165,7 +168,7 @@ const Principal = function (update) {
     state.screen = "reporteProvincia"
   });
 
-  return content;
+  return container;
 };
 
 'use strict';

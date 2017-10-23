@@ -77,13 +77,27 @@
   padding-bottom: 7px;
   margin-right: 28px;
 }
+input[type="text"]{
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #cecece;
+  padding: 5px;
+}
 
 /****************principal*******************/
 .principal-content{
-  width: 70%;
-  margin: 2% auto;
+  background-color: #fff;
+  width: 50%;
+  margin: 3% auto;
   border: 1.5px solid blue;
-  padding: 2%
+  padding: 2%;
+  text-align: center;
+}
+@media (max-width: 780px) {
+  .principal-content{
+    width: 90%;
+  }
+
 }
 .code-button {
   display: inline-block;
@@ -125,5 +139,10 @@ form{
   background-color: $white;
   padding: 20px;
   width: 50%;
-  margin: auto;;
+  margin: auto;
+}
+@media (max-width: 780px) {
+  form{
+    width: 100%;
+  }
 }
